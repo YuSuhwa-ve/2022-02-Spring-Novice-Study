@@ -33,7 +33,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         String registrationId = userRequest.getClientRegistration().getRegistrationId();
         // OAuth2 로그인 진행시 키가 되는 필드값, 구글은 이를 지원하지만 네이버, 카카오등에서 필요
         String userNameAttributeName = userRequest.getClientRegistration().getProviderDetails().getUserInfoEndpoint().getUserNameAttributeName();
-        // OAuthAttributes는 OAuth2UserService를 통해 가져온 OAuth2User의 attribute를 담은 크래스
+        // OAuthAttributes는 OAuth2UserService를 통해 가져온 OAuth2User의 attribute를 담은 클래스
         OAuthAttributes attributes = OAuthAttributes.of(registrationId, userNameAttributeName, oAuth2User.getAttributes());
 
         User user = saveOrUpdate(attributes);
